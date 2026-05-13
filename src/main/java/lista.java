@@ -1,0 +1,7 @@
+public void lista() {
+    for (String pessoa : pessoas.keySet()) {
+        System.out.println("Nome: " + pessoa);
+        System.out.println("Idade: " + pessoas.get(pessoa).idade());
+        System.out.println("Cidade: " + pessoas.get(pessoa).cidade());
+    }
+}
