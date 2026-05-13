@@ -1,7 +1,7 @@
 package menucli.app;
 
-public class buscar {
-    public void buscar() {
+public class Buscar {
+    public void buscarPessoas() {
         System.out.print("Qual nome deseja procurar?");
         String buscar = entrada.nextLine();
 
