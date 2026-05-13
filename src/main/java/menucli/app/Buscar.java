@@ -1,19 +1,27 @@
 package menucli.app;
 
+import java.util.HashMap;
+import java.util.Scanner;
+
 public class Buscar {
-    public void buscarPessoas() {
-        System.out.print("Qual nome deseja procurar?");
+
+    private HashMap<String, perfil> pessoas;
+    private Scanner entrada;
+
+    public void buscarPessoas (HashMap<String, perfil> pessoas) {
+        this.pessoas = pessoas;
+
+        System.out.print("Qual nome deseja procurar? ");
         String buscar = entrada.nextLine();
 
         if (pessoas.containsKey(buscar)) {
-            System.out.println("\n===== LISTA =====");
+            System.out.println("\n===== PESSOA ENCONTRADA =====");
             System.out.println("Nome: " + buscar);
-            System.out.println("IDADE:" + pessoas.get(buscar).idade());
-            System.out.println("CIDADE:" + pessoas.get(buscar).cidade());
+            System.out.println("IDADE: " + pessoas.get(buscar).idade());
+            System.out.println("CIDADE: " + pessoas.get(buscar).cidade());
             System.out.println("==============================");
         } else {
-            System.out.println("Não Cadastrado ");
+            System.out.println("Não cadastrado");
         }
     }
-
 }

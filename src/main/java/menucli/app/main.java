@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class main {
-    public Scanner entrada = new Scanner(System.in);
-    HashMap<String, perfil> pessoas = new HashMap<>();
+
+    public HashMap<String, perfil> pessoas = new HashMap<>();
     idadePessoas idades = new idadePessoas();
 
     static void main(String[] args) {
         main menu = new main();
-
+        Buscar buscar = new Buscar(menu.pessoas);
         int opcao = -1;
 
         while (opcao != 0) {
@@ -38,15 +38,19 @@ public class main {
                 case 1:
                     cadastrar();
                     break;
+
                 case 2:
                     lista();
                     break;
+
                 case 3:
-                    buscar();
+                    buscar.buscarPessoas(menu.pessoas);
                     break;
+
                 case 4:
                     deletar();
                     break;
+
                 case 0:
                     break;
             }
