@@ -1,3 +1,5 @@
+package menucli.app;
+
 public class cadastrar {
     entrada.nextLine();
 

@@ -1,3 +1,5 @@
+package menucli.app;
+
 public class buscar {
     public void buscar() {
         System.out.print("Qual nome deseja procurar?");

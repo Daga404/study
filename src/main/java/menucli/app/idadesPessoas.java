@@ -1,3 +1,5 @@
+package menucli.app;
+
 class idadePessoas {
     Node head;
     Node tail;

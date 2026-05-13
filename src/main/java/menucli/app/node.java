@@ -1,3 +1,5 @@
+package menucli.app;
+
 class Node {
     int idade;
     Node next;
