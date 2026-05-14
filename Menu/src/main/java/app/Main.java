@@ -1,20 +1,19 @@
-package menucli.app;
+package app;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class main {
+public class Main {
 
     public HashMap<String, perfil> pessoas = new HashMap<>();
-    idadePessoas idades = new idadePessoas();
+    public Scanner entrada = new Scanner(System.in);
 
-    static void main(String[] args) {
-        main menu = new main();
+    public static void main(String[] args) {
+        Main menu = new Main();
         Buscar buscar = new Buscar(menu.pessoas);
         int opcao = -1;
 
         while (opcao != 0) {
-
             System.out.println("1. Cadastrar");
             System.out.println("2. Lista");
             System.out.println("3. Buscar");
@@ -44,7 +43,7 @@ public class main {
                     break;
 
                 case 3:
-                    buscar.buscarPessoas(menu.pessoas);
+                    buscar.buscarPessoas();
                     break;
 
                 case 4:
@@ -55,5 +54,16 @@ public class main {
                     break;
             }
         }
+    }
+
+    int pegarInputInt() {
+        int opcao = -1;
+        if (entrada.hasNextInt()) {
+            opcao = entrada.nextInt();
+            entrada.nextLine();
+            return opcao;
+        }
+        entrada.nextLine();
+        return opcao;
     }
 }

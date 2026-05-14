@@ -1,4 +1,4 @@
-package menucli.app;
+package app;
 
 class idadePessoas {
     Node head;
@@ -18,5 +18,3 @@ class idadePessoas {
         return aux;
     }
 }
-
-

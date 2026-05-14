@@ -1,4 +1,4 @@
-package menucli.app;
+package app;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -6,11 +6,13 @@ import java.util.Scanner;
 public class Buscar {
 
     private HashMap<String, perfil> pessoas;
-    private Scanner entrada;
+    private Scanner entrada = new Scanner(System.in);
 
-    public void buscarPessoas (HashMap<String, perfil> pessoas) {
+    public Buscar(HashMap<String, perfil> pessoas) {
         this.pessoas = pessoas;
+    }
 
+    public void buscarPessoas() {
         System.out.print("Qual nome deseja procurar? ");
         String buscar = entrada.nextLine();
 

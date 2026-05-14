@@ -1,4 +1,4 @@
-package menucli.app;
+package app;
 
 class Node {
     int idade;
@@ -22,7 +22,6 @@ class idadePessoas {
         }
         return aux;
     }
-
 
     public Node get() {
         return tail;
