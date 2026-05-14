@@ -8,7 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65403b24-ce64-4b9b-92f0-b6e8c36022f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/IdadePessoas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Cadastrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Cadastrar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/deletar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Deletar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/idadesPessoas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/lista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Lista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +95,8 @@
       <workItem from="1778699003006" duration="953000" />
       <workItem from="1778702087669" duration="2703000" />
       <workItem from="1778734544673" duration="702000" />
-      <workItem from="1778735264765" duration="1067000" />
+      <workItem from="1778735264765" duration="1515000" />
+      <workItem from="1778757534625" duration="3654000" />
     </task>
     <servers />
   </component>

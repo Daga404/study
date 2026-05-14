@@ -7,9 +7,9 @@ public class Cadastrar {
 
     private HashMap<String, perfil> pessoas;
     private Scanner entrada = new Scanner(System.in);
-    private idadePessoas idades;
+    private IdadePessoas idades;
 
-    public Cadastrar(HashMap<String, perfil> pessoas , idadePessoas idades ) {
+    public Cadastrar(HashMap<String, perfil> pessoas, IdadePessoas idades) {
         this.pessoas = pessoas;
         this.idades = idades;
     }

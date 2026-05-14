@@ -7,12 +7,15 @@ public class Main {
 
     public HashMap<String, perfil> pessoas = new HashMap<>();
     public Scanner entrada = new Scanner(System.in);
-    public idadePessoas idades = new idadePessoas();
+    public IdadePessoas idades = new IdadePessoas();
 
     public static void main(String[] args) {
         Main menu = new Main();
         Buscar buscar = new Buscar(menu.pessoas);
         Cadastrar cadastrar = new Cadastrar(menu.pessoas, menu.idades);
+        Lista lista = new Lista(menu.pessoas);
+        Deletar deletar = new Deletar(menu.pessoas);
+
         int opcao = -1;
 
         while (opcao != 0) {
@@ -41,7 +44,7 @@ public class Main {
                     break;
 
                 case 2:
-                    lista();
+                    lista.listaPessoas();
                     break;
 
                 case 3:
@@ -49,7 +52,7 @@ public class Main {
                     break;
 
                 case 4:
-                    deletar();
+                    deletar.deletarPessoas();
                     break;
 
                 case 0:
@@ -60,11 +63,14 @@ public class Main {
 
     int pegarInputInt() {
         int opcao = -1;
+
         if (entrada.hasNextInt()) {
             opcao = entrada.nextInt();
             entrada.nextLine();
+
             return opcao;
         }
+
         entrada.nextLine();
         return opcao;
     }
