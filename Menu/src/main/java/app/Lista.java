@@ -4,9 +4,9 @@ import java.util.HashMap;
 
 class Lista {
 
-    private HashMap<String, perfil> pessoas;
+    private HashMap<String, Perfil> pessoas;
 
-    public Lista(HashMap<String, perfil> pessoas) {
+    public Lista(HashMap<String, Perfil> pessoas) {
         this.pessoas = pessoas;
     }
 

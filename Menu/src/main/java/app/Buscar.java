@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class Buscar {
 
-    private HashMap<String, perfil> pessoas;
+    private HashMap<String, Perfil> pessoas;
     private Scanner entrada = new Scanner(System.in);
 
-    public Buscar(HashMap<String, perfil> pessoas) {
+    public Buscar(HashMap<String, Perfil> pessoas) {
         this.pessoas = pessoas;
     }
 

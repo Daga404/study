@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Cadastrar {
 
-    private HashMap<String, perfil> pessoas;
+    private HashMap<String, Perfil> pessoas;
     private Scanner entrada = new Scanner(System.in);
     private IdadePessoas idades;
 
-    public Cadastrar(HashMap<String, perfil> pessoas, IdadePessoas idades) {
+    public Cadastrar(HashMap<String, Perfil> pessoas, IdadePessoas idades) {
         this.pessoas = pessoas;
         this.idades = idades;
     }
@@ -32,6 +32,6 @@ public class Cadastrar {
         System.out.println("Cidade: " + cidade);
         System.out.println("==============================");
 
-        pessoas.put(nome, new perfil(idade, cidade));
+        pessoas.put(nome, new Perfil(idade, cidade));
     }
 }

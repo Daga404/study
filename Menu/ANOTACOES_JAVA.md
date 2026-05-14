@@ -1,4 +1,22 @@
-# Anotações Java do projeto
+# Anotacoes Java do projeto
+
+Este arquivo e um resumo simples dos conceitos que apareceram no CRUD.
+
+## Ideia geral do projeto
+
+O projeto tem um menu no terminal.
+
+O `Main` mostra as opcoes e chama outras classes:
+
+- `Cadastrar`: cadastra pessoas.
+- `Buscar`: procura pessoas.
+- `Lista`: mostra pessoas cadastradas.
+- `Deletar`: remove pessoas.
+- `perfil`: guarda idade e cidade.
+- `Node`: representa um item da lista de idades.
+- `IdadePessoas`: controla a lista manual de idades.
+
+---
 
 ## `new`
 
@@ -10,32 +28,41 @@ Exemplo:
 Main menu = new Main();
 ```
 
-Isso significa:
+Leia assim:
 
-- cria um objeto da classe `Main`
-- guarda esse objeto na variável `menu`
-
-Use `new` quando você precisa criar um objeto real a partir de uma classe.
-
-Exemplos do projeto:
-
-```java
-new Main()
-new Buscar(menu.pessoas)
-new Cadastrar(menu.pessoas, menu.idades)
-new Scanner(System.in)
-new HashMap<>()
-new perfil(idade, cidade)
-new Node()
+```text
+Crie um objeto da classe Main e guarde na variavel menu.
 ```
 
-Não use `new` quando você só quer chamar um método de um objeto que já existe.
+Outro exemplo:
+
+```java
+Buscar buscar = new Buscar(menu.pessoas);
+```
+
+Leia assim:
+
+```text
+Crie um objeto Buscar e entregue para ele o HashMap pessoas.
+```
+
+Use `new` quando voce precisa criar um objeto.
+
+Nao use `new` para chamar metodo de objeto que ja existe.
+
+Exemplo:
+
+```java
+buscar.buscarPessoas();
+```
+
+Aqui nao precisa de `new`, porque `buscar` ja existe.
 
 ---
 
 ## Classe
 
-Classe é o molde.
+Classe e o molde.
 
 Exemplo:
 
@@ -44,18 +71,20 @@ class Lista {
 }
 ```
 
-A classe define o que um objeto pode ter e fazer.
+A classe diz o que um objeto daquele tipo pode ter e fazer.
 
 Analogia:
 
-- classe = forma de bolo
-- objeto = bolo pronto
+```text
+classe = forma de bolo
+objeto = bolo pronto
+```
 
 ---
 
 ## Objeto
 
-Objeto é uma coisa criada a partir de uma classe.
+Objeto e algo criado a partir de uma classe.
 
 Exemplo:
 
@@ -63,7 +92,11 @@ Exemplo:
 Lista lista = new Lista(menu.pessoas);
 ```
 
-Aqui `lista` é um objeto da classe `Lista`.
+Aqui:
+
+- `Lista` e a classe.
+- `lista` e o objeto.
+- `new Lista(...)` cria o objeto.
 
 ---
 
@@ -82,25 +115,23 @@ public Lista(HashMap<String, perfil> pessoas) {
 Regras:
 
 - tem o mesmo nome da classe
-- não tem `void`
-- não tem tipo de retorno
+- nao tem `void`
+- nao tem tipo de retorno
 - roda quando usamos `new`
 
-Use construtor quando o objeto precisa nascer já com alguma informação.
-
-Exemplo do projeto:
+Exemplo de uso:
 
 ```java
 Lista lista = new Lista(menu.pessoas);
 ```
 
-A `Lista` precisa do `HashMap` para saber quais pessoas listar.
+O construtor recebe `menu.pessoas` e guarda dentro da classe `Lista`.
 
 ---
 
 ## Atributo
 
-Atributo guarda algo que o objeto precisa lembrar.
+Atributo e uma informacao que o objeto precisa lembrar.
 
 Exemplo:
 
@@ -110,13 +141,13 @@ private HashMap<String, perfil> pessoas;
 
 Esse atributo guarda o `HashMap` dentro da classe.
 
-Use atributo quando a classe vai precisar daquela informação em vários métodos.
+Use atributo quando a classe vai precisar daquele valor em varios metodos.
 
 ---
 
-## Variável local
+## Variavel local
 
-Variável local existe só dentro de um método.
+Variavel local existe so dentro do metodo.
 
 Exemplo:
 
@@ -124,9 +155,9 @@ Exemplo:
 String cidade = entrada.nextLine();
 ```
 
-Essa variável `cidade` só existe dentro do método onde foi criada.
+Essa variavel so existe dentro daquele metodo.
 
-Use variável local quando o valor só é necessário naquela ação.
+Use variavel local quando o valor so serve para aquela acao.
 
 ---
 
@@ -140,18 +171,22 @@ Exemplo:
 this.pessoas = pessoas;
 ```
 
-Significa:
+Leia assim:
 
-- `this.pessoas`: atributo da classe
-- `pessoas`: parâmetro que chegou no construtor
+```text
+Pegue o parametro pessoas e guarde no atributo pessoas.
+```
 
-Use `this` quando o atributo e o parâmetro têm o mesmo nome.
+Diferença:
+
+- `this.pessoas`: atributo da classe.
+- `pessoas`: parametro recebido no construtor.
 
 ---
 
 ## `static`
 
-O `main` precisa ser `static` porque o Java precisa começar o programa sem criar um objeto antes.
+O `main` precisa ser `static`.
 
 Exemplo:
 
@@ -160,12 +195,20 @@ public static void main(String[] args) {
 }
 ```
 
-Mas o resto do projeto não precisa virar `static`.
+Motivo:
 
-Ideia simples:
+```text
+O Java precisa de um ponto inicial para comecar o programa.
+```
 
-- `main` é a porta de entrada do programa
-- as outras classes podem ser objetos normais
+Mas isso nao significa que tudo precisa ser `static`.
+
+No seu projeto, o resto pode ser objeto normal:
+
+```java
+Main menu = new Main();
+Buscar buscar = new Buscar(menu.pessoas);
+```
 
 ---
 
@@ -173,34 +216,124 @@ Ideia simples:
 
 `HashMap` guarda pares de chave e valor.
 
-No projeto:
+No seu projeto:
 
 ```java
-HashMap<String, perfil> pessoas
+HashMap<String, perfil> pessoas = new HashMap<>();
 ```
 
-Significa:
+Leia assim:
 
-- chave: `String`, o nome da pessoa
-- valor: `perfil`, que guarda idade e cidade
+```text
+Um mapa onde a chave e um texto e o valor e um perfil.
+```
+
+No seu caso:
+
+- chave: nome da pessoa
+- valor: perfil com idade e cidade
 
 Exemplo mental:
 
 ```text
-"Carol" -> perfil(20, "São Paulo")
+"Ana" -> perfil(20, "Santos")
+"Joao" -> perfil(31, "Curitiba")
 ```
 
-O `HashMap` principal não deve ser recriado em cada método.
+### `put`
 
-Ele deve nascer uma vez no `Main` e ser compartilhado com as outras classes.
+`put` adiciona ou atualiza um valor no `HashMap`.
+
+Exemplo:
+
+```java
+pessoas.put(nome, new perfil(idade, cidade));
+```
+
+Leia assim:
+
+```text
+Guarde no mapa pessoas:
+chave = nome
+valor = perfil com idade e cidade
+```
+
+### `get`
+
+`get` pega um valor pela chave.
+
+Exemplo:
+
+```java
+pessoas.get(nome)
+```
+
+Se `nome` for `"Ana"`, ele busca o perfil da Ana.
+
+### `containsKey`
+
+`containsKey` verifica se a chave existe.
+
+Exemplo:
+
+```java
+if (pessoas.containsKey(buscar)) {
+}
+```
+
+Leia assim:
+
+```text
+Se o mapa pessoas contem esse nome, faca alguma coisa.
+```
+
+### `remove`
+
+`remove` apaga um item pela chave.
+
+Exemplo:
+
+```java
+pessoas.remove(remover);
+```
+
+Leia assim:
+
+```text
+Remova do mapa a pessoa com esse nome.
+```
+
+### `keySet`
+
+`keySet` pega todas as chaves.
+
+Exemplo:
+
+```java
+for (String pessoa : pessoas.keySet()) {
+}
+```
+
+No seu projeto, as chaves sao os nomes.
+
+### Regra importante
+
+O `HashMap` principal nao deve ser criado de novo em cada classe.
+
+Melhor:
+
+```text
+Main cria o HashMap uma vez.
+As outras classes recebem esse mesmo HashMap.
+```
+
+Assim `Cadastrar`, `Buscar`, `Lista` e `Deletar` olham para os mesmos dados.
 
 ---
 
 ## `record perfil`
 
-O `record` guarda dados de forma simples.
-
-No projeto:
+`perfil` e a ficha da pessoa.
 
 ```java
 public record perfil(int idade, String cidade) {
@@ -212,13 +345,14 @@ Ele guarda:
 - idade
 - cidade
 
-O nome da pessoa fica como chave no `HashMap`.
+O nome nao fica no `perfil`.
+O nome fica como chave no `HashMap`.
 
 ---
 
 ## `Scanner`
 
-`Scanner` lê entrada do usuário.
+`Scanner` le dados digitados pelo usuario.
 
 Exemplo:
 
@@ -226,19 +360,17 @@ Exemplo:
 Scanner entrada = new Scanner(System.in);
 ```
 
-`System.in` significa entrada pelo teclado.
+`System.in` representa o teclado.
 
-Declarar `Scanner` não basta.
-
-Errado:
+Declarar nao basta:
 
 ```java
 private Scanner entrada;
 ```
 
-Assim ele existe como variável, mas ainda não tem um Scanner real.
+Isso so cria o espaco da variavel.
 
-Certo:
+Para usar `nextLine()` ou `nextInt()`, precisa ter um Scanner real:
 
 ```java
 private Scanner entrada = new Scanner(System.in);
@@ -246,9 +378,23 @@ private Scanner entrada = new Scanner(System.in);
 
 ---
 
-## `nextInt()`
+## `nextLine`
 
-`nextInt()` lê um número inteiro.
+`nextLine()` le uma linha de texto.
+
+Exemplo:
+
+```java
+String nome = entrada.nextLine();
+```
+
+Use para ler nome, cidade e textos em geral.
+
+---
+
+## `nextInt`
+
+`nextInt()` le um numero inteiro.
 
 Exemplo:
 
@@ -256,51 +402,40 @@ Exemplo:
 int idade = entrada.nextInt();
 ```
 
-Se o usuário digitar `20`, a variável `idade` recebe `20`.
+Cuidado:
 
-Cuidado: `nextInt()` não limpa o Enter.
+```text
+nextInt pega o numero, mas deixa o Enter sobrando.
+```
 
----
-
-## `nextLine()`
-
-`nextLine()` lê uma linha inteira.
-
-Também usamos depois do `nextInt()` para limpar o Enter que sobra.
-
-Exemplo:
+Por isso normalmente fazemos:
 
 ```java
 int idade = entrada.nextInt();
 entrada.nextLine();
 ```
 
-Ordem:
-
-1. pega o número
-2. limpa o Enter
-
 ---
 
-## `hasNextInt()`
+## `hasNextInt`
 
-`hasNextInt()` verifica se o próximo valor digitado é um número inteiro.
+`hasNextInt()` pergunta se o proximo valor e um numero inteiro.
 
 Exemplo:
 
 ```java
 if (entrada.hasNextInt()) {
-    int numero = entrada.nextInt();
+    int opcao = entrada.nextInt();
 }
 ```
 
-Use para evitar erro quando o usuário digita texto no lugar de número.
+Use para evitar erro quando a pessoa digita letra no menu.
 
 ---
 
 ## `return`
 
-`return` devolve um valor para quem chamou o método.
+`return` devolve um valor para quem chamou o metodo.
 
 Exemplo:
 
@@ -308,7 +443,7 @@ Exemplo:
 return opcao;
 ```
 
-Se o método começa com `int`, ele promete devolver um número.
+Se o metodo promete devolver `int`, ele precisa retornar um numero.
 
 Exemplo:
 
@@ -318,13 +453,11 @@ int pegarInputInt() {
 }
 ```
 
-Se o método é `void`, ele não devolve nada.
-
 ---
 
 ## `void`
 
-`void` significa que o método não devolve valor.
+`void` significa que o metodo nao devolve nada.
 
 Exemplo:
 
@@ -333,54 +466,33 @@ public void listaPessoas() {
 }
 ```
 
-Esse método só executa uma ação, como imprimir no terminal.
+Esse metodo apenas executa uma acao.
 
 ---
 
 ## `for`
 
-`for` repete um bloco de código.
+`for` repete um bloco.
 
 No projeto:
 
 ```java
 for (String pessoa : pessoas.keySet()) {
+    System.out.println("Nome: " + pessoa);
 }
 ```
 
-Significa:
+Leia assim:
 
-- para cada nome dentro do `HashMap`
-- execute o bloco
-
-`pessoas.keySet()` pega todas as chaves do `HashMap`.
-
-No seu caso, as chaves são os nomes das pessoas.
-
----
-
-## `pessoas.get(pessoa)`
-
-Pega o `perfil` de uma pessoa dentro do `HashMap`.
-
-Exemplo:
-
-```java
-pessoas.get(pessoa).idade()
+```text
+Para cada nome dentro do HashMap pessoas, imprima o nome.
 ```
-
-Significa:
-
-- pegue o perfil da pessoa
-- depois pegue a idade desse perfil
 
 ---
 
 ## `Node`
 
-`Node` é uma caixinha da lista.
-
-No projeto:
+`Node` e uma caixinha da lista manual.
 
 ```java
 class Node {
@@ -392,71 +504,57 @@ class Node {
 Ele guarda:
 
 - uma idade
-- o caminho para o próximo `Node`
+- o caminho para o proximo item
 
 Analogia:
 
-`Node` é um vagão.
+```text
+Node = um vagao
+```
 
 ---
 
 ## `IdadePessoas`
 
-`IdadePessoas` é a lista inteira.
+`IdadePessoas` controla a lista de idades.
 
-Ela controla:
+Ela usa:
 
-- `head`: primeiro nó
-- `tail`: último nó
-- `append`: adiciona idade no final
-- `getByIndex`: busca pela posição
+- `head`: primeiro item
+- `tail`: ultimo item
+- `append`: adiciona no final
+- `getByIndex`: busca por posicao
 
 Analogia:
 
-- `Node` = vagão
-- `IdadePessoas` = trem inteiro
-
----
-
-## `package`
-
-`package` precisa combinar com a pasta.
-
-Se o arquivo está em:
-
 ```text
-src/main/java/app
-```
-
-O começo do arquivo deve ser:
-
-```java
-package app;
+Node = vagao
+IdadePessoas = trem inteiro
 ```
 
 ---
 
-## Ideia das classes do projeto
+## Como pensar nas classes
 
 ### `Main`
 
-Mostra o menu e controla o fluxo.
+Mostra o menu e chama as outras classes.
 
 ### `Cadastrar`
 
-Cadastra uma pessoa.
+Le dados do usuario e salva no `HashMap`.
 
 ### `Buscar`
 
-Busca uma pessoa no `HashMap`.
+Procura uma pessoa no `HashMap`.
 
 ### `Lista`
 
-Lista todas as pessoas cadastradas.
+Mostra todas as pessoas do `HashMap`.
 
-### `deletar`
+### `Deletar`
 
-Remove uma pessoa.
+Remove uma pessoa do `HashMap`.
 
 ### `perfil`
 
@@ -464,7 +562,7 @@ Guarda idade e cidade.
 
 ### `Node`
 
-Guarda uma idade e aponta para o próximo nó.
+Guarda uma idade na lista manual.
 
 ### `IdadePessoas`
 

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public HashMap<String, perfil> pessoas = new HashMap<>();
+    public HashMap<String, Perfil> pessoas = new HashMap<>();
     public Scanner entrada = new Scanner(System.in);
     public IdadePessoas idades = new IdadePessoas();
 

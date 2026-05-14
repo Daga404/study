@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class Deletar {
 
-    private HashMap<String, perfil> pessoas;
+    private HashMap<String, Perfil> pessoas;
     private Scanner entrada = new Scanner(System.in);
 
-    public Deletar(HashMap<String, perfil> pessoas) {
+    public Deletar(HashMap<String, Perfil> pessoas) {
         this.pessoas = pessoas;
     }
 
