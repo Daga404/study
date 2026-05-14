@@ -7,6 +7,12 @@ public class Cadastrar {
 
     private HashMap<String, perfil> pessoas;
     private Scanner entrada = new Scanner(System.in);
+    private idadePessoas idades;
+
+    public Cadastrar(HashMap<String, perfil> pessoas , idadePessoas idades ) {
+        this.pessoas = pessoas;
+        this.idades = idades;
+    }
 
     public void cadastrarPessoas() {
         System.out.print("DIGITE SEU NOME:");

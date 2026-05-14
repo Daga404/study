@@ -7,10 +7,12 @@ public class Main {
 
     public HashMap<String, perfil> pessoas = new HashMap<>();
     public Scanner entrada = new Scanner(System.in);
+    public idadePessoas idades = new idadePessoas();
 
     public static void main(String[] args) {
         Main menu = new Main();
         Buscar buscar = new Buscar(menu.pessoas);
+        Cadastrar cadastrar = new Cadastrar(menu.pessoas, menu.idades);
         int opcao = -1;
 
         while (opcao != 0) {
@@ -35,7 +37,7 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    cadastrar();
+                    cadastrar.cadastrarPessoas();
                     break;
 
                 case 2:
