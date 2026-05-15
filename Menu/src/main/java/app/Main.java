@@ -19,23 +19,7 @@ public class Main {
         int opcao = -1;
 
         while (opcao != 0) {
-            System.out.println("1. Cadastrar");
-            System.out.println("2. Lista");
-            System.out.println("3. Buscar");
-            System.out.println("4. Deletar");
-            System.out.println("5. Mostrar última pessoa cadastrada");
-            System.out.println("6. Mostrar primeira pessoa cadastrada");
-            System.out.println("7. Buscar idade por posição");
-            System.out.println("8. Remover última idade cadastrada");
-            System.out.println("9. Mostrar todas as idades em ordem");
-            System.out.println("10. Contar quantas idades existem");
-            System.out.println("11. Verificar se uma idade existe");
-            System.out.println("12. Mostrar maior idade");
-            System.out.println("13. Mostrar menor idade");
-            System.out.println("14. Mostrar média das idades");
-            System.out.println("15. Mostrar estrutura da lista");
-            System.out.println("0. Sair");
-
+            menu.mostrarMenu();
             opcao = menu.pegarInputInt();
 
             switch (opcao) {
@@ -55,10 +39,44 @@ public class Main {
                     deletar.deletarPessoas();
                     break;
 
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                    System.out.println("Funcionalidade ainda não implementada.");
+                    break;
+
                 case 0:
+                    break;
+
+                default:
+                    System.out.println("Opção inválida.");
                     break;
             }
         }
+    }
+
+    void mostrarMenu() {
+        System.out.println("1. Cadastrar pessoa");
+        System.out.println("2. Listar pessoas");
+        System.out.println("3. Buscar pessoa");
+        System.out.println("4. Deletar pessoa");
+        System.out.println("6. Editar dados de contato");
+        System.out.println("7. Adicionar observação ao cadastro");
+        System.out.println("8. Buscar por telefone");
+        System.out.println("9. Buscar por email");
+        System.out.println("10. Filtrar pessoas por cidade");
+        System.out.println("11. Gerar relatório de uma pessoa");
+        System.out.println("12. Gerar relatório geral");
+        System.out.println("13. Exportar dados");
+        System.out.println("14. Fazer backup dos cadastros");
+        System.out.println("0. Sair");
     }
 
     int pegarInputInt() {

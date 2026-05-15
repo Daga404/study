@@ -13,11 +13,9 @@ public class Deletar {
     }
 
     public void deletarPessoas() {
-
-        System.out.print("Digite o nome que deseja excluir:");
+        System.out.print("Nome para deletar: ");
         String remover = entrada.nextLine();
+
         pessoas.remove(remover);
-
     }
-
 }

@@ -13,17 +13,22 @@ public class Buscar {
     }
 
     public void buscarPessoas() {
-        System.out.print("Qual nome deseja procurar? ");
+        System.out.print("Nome para buscar: ");
         String buscar = entrada.nextLine();
 
         if (pessoas.containsKey(buscar)) {
+            Perfil perfil = pessoas.get(buscar);
+
             System.out.println("\n===== PESSOA ENCONTRADA =====");
-            System.out.println("Nome: " + buscar);
-            System.out.println("IDADE: " + pessoas.get(buscar).idade());
-            System.out.println("CIDADE: " + pessoas.get(buscar).cidade());
+            System.out.println("Nome:     " + buscar);
+            System.out.println("Idade:    " + perfil.idade() + " anos");
+            System.out.println("Cidade:   " + perfil.cidade());
+            System.out.println("Email:    " + perfil.email());
+            System.out.println("Telefone: " + perfil.telefone());
+            System.out.println("Endereço: " + perfil.endereco());
             System.out.println("==============================");
         } else {
-            System.out.println("Não cadastrado");
+            System.out.println("Pessoa não cadastrada.");
         }
     }
 }

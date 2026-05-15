@@ -12,9 +12,16 @@ class Lista {
 
     public void listaPessoas() {
         for (String pessoa : pessoas.keySet()) {
-            System.out.println("Nome: " + pessoa);
-            System.out.println("Idade: " + pessoas.get(pessoa).idade());
-            System.out.println("Cidade: " + pessoas.get(pessoa).cidade());
+            Perfil perfil = pessoas.get(pessoa);
+
+            System.out.println("\n===== PESSOA CADASTRADA =====");
+            System.out.println("Nome:     " + pessoa);
+            System.out.println("Idade:    " + perfil.idade() + " anos");
+            System.out.println("Cidade:   " + perfil.cidade());
+            System.out.println("Email:    " + perfil.email());
+            System.out.println("Telefone: " + perfil.telefone());
+            System.out.println("Endereço: " + perfil.endereco());
+            System.out.println("=============================");
         }
     }
 }

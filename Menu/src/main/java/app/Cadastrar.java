@@ -15,23 +15,35 @@ public class Cadastrar {
     }
 
     public void cadastrarPessoas() {
-        System.out.print("DIGITE SEU NOME:");
+        System.out.print("Nome: ");
         String nome = entrada.nextLine();
 
-        System.out.print("Sua idade:");
+        System.out.print("Idade: ");
         int idade = entrada.nextInt();
         idades.append(idade);
         entrada.nextLine();
 
-        System.out.print("Qual é a sua cidade: ");
+        System.out.print("Cidade: ");
         String cidade = entrada.nextLine();
 
+        System.out.print("Email: ");
+        String email = entrada.nextLine();
+
+        System.out.print("Telefone: ");
+        String telefone = entrada.nextLine();
+
+        System.out.print("Endereço: ");
+        String endereco = entrada.nextLine();
+
         System.out.println("\n===== CADASTRO REALIZADO =====");
-        System.out.println("Nome:   " + nome);
-        System.out.println("Idade:  " + idade + " anos");
-        System.out.println("Cidade: " + cidade);
+        System.out.println("Nome:     " + nome);
+        System.out.println("Idade:    " + idade + " anos");
+        System.out.println("Cidade:   " + cidade);
+        System.out.println("Email:    " + email);
+        System.out.println("Telefone: " + telefone);
+        System.out.println("Endereço: " + endereco);
         System.out.println("==============================");
 
-        pessoas.put(nome, new Perfil(idade, cidade));
+        pessoas.put(nome, new Perfil(idade, cidade, email, telefone, endereco));
     }
 }
