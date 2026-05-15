@@ -6,17 +6,23 @@ import java.util.Scanner;
 public class Cadastrar {
 
     private HashMap<String, Perfil> pessoas;
-    private Scanner entrada = new Scanner(System.in);
+    private Scanner entrada;
     private IdadePessoas idades;
 
-    public Cadastrar(HashMap<String, Perfil> pessoas, IdadePessoas idades) {
+    public Cadastrar(HashMap<String, Perfil> pessoas, IdadePessoas idades, Scanner entrada) {
         this.pessoas = pessoas;
         this.idades = idades;
+        this.entrada = entrada;
     }
 
     public void cadastrarPessoas() {
         System.out.print("Nome: ");
         String nome = entrada.nextLine();
+
+        if (pessoas.containsKey(nome)) {
+            System.out.println("Pessoa ja cadastrada.");
+            return;
+        }
 
         System.out.print("Idade: ");
         int idade = entrada.nextInt();
@@ -32,18 +38,24 @@ public class Cadastrar {
         System.out.print("Telefone: ");
         String telefone = entrada.nextLine();
 
-        System.out.print("Endereço: ");
+        System.out.print("Endereco: ");
         String endereco = entrada.nextLine();
 
-        System.out.println("\n===== CADASTRO REALIZADO =====");
-        System.out.println("Nome:     " + nome);
-        System.out.println("Idade:    " + idade + " anos");
-        System.out.println("Cidade:   " + cidade);
-        System.out.println("Email:    " + email);
-        System.out.println("Telefone: " + telefone);
-        System.out.println("Endereço: " + endereco);
-        System.out.println("==============================");
+        Perfil perfil = new Perfil(idade, cidade, email, telefone, endereco, "");
+        pessoas.put(nome, perfil);
 
-        pessoas.put(nome, new Perfil(idade, cidade, email, telefone, endereco));
+        System.out.println("\n===== CADASTRO REALIZADO =====");
+        imprimirPessoa(nome, perfil);
+        System.out.println("==============================");
+    }
+
+    private void imprimirPessoa(String nome, Perfil perfil) {
+        System.out.println("Nome:       " + nome);
+        System.out.println("Idade:      " + perfil.idade() + " anos");
+        System.out.println("Cidade:     " + perfil.cidade());
+        System.out.println("Email:      " + perfil.email());
+        System.out.println("Telefone:   " + perfil.telefone());
+        System.out.println("Endereco:   " + perfil.endereco());
+        System.out.println("Observacao: " + perfil.observacao());
     }
 }
